@@ -15,25 +15,22 @@ def publishDocumentation() {
 }
 
 pipeline {
-    agent none
+    agent { label 'docker' }
 
     stages {
         stage ('Initialize') {
-            agent { label 'docker' }
             steps  {
                 jplStart(cfg)
             }
         }
         stage('Sonarqube Analysis') {
             when { expression { (env.BRANCH_NAME == 'develop') || env.BRANCH_NAME.startsWith('PR-') } }
-            agent { label 'docker' }
             steps {
                 echo "Temporary disabled"
                 //jplSonarScanner(cfg)
             }
         }
         stage ('Test') {
-            agent { label 'docker' }
             steps  {
                 sh 'bin/test.sh'
             }
@@ -44,7 +41,6 @@ pipeline {
             }
         }
         stage ('Make release'){
-            agent { label 'docker' }
             when { branch 'release/new' }
             steps {
                 publishDocumentation()
