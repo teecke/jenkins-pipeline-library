@@ -1,6 +1,6 @@
 # DEPRECATED
 
-Please visit https://github.com/tpbtools/jenkins-pipeline-library 
+Please visit https://github.com/ayudadigital/jenkins-pipeline-library 
 
 [![Build Status](https://jenkins.teecke.com/buildStatus/icon?job=github-open-teecke%2Fjenkins-pipeline-library%2Fdevelop)](https://jenkins.teecke.com/job/github-open-teecke/job/jenkins-pipeline-library/job/develop/)
 
